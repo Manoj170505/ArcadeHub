@@ -7,7 +7,6 @@ import Hangman from './Components/Hangman.jsx'
 import TicTacToe from './Components/TicTacToe.jsx'
 import MemoryMatch from './Components/MemoryMatch.jsx'
 
-
 function App() {
 
   const [loading, setLoading] = useState(true);
