@@ -2,11 +2,17 @@ import React from 'react';
 import XImg from '../assets/X-logo.png';
 import OImg from '../assets/O-logo.png';
 import { MdReplay } from "react-icons/md";
-
+import Input from '../assets/SoundEffects/Input.mp3'
+import Wins from '../assets/SoundEffects/XOwin.mp3'
 const TicTacToe = () => {
     const [board, setBoard] = React.useState(Array(9).fill(null));
     const [isXNext, setIsXNext] = React.useState(true);
     const [winner, setWinner] = React.useState(null);
+    const inputSound = new Audio(Input);
+
+    const handleInputSound = () => {
+        inputSound.play();
+    }
 
     const handleClick = (index) => {
         if (board[index] || winner) return;
@@ -84,7 +90,7 @@ const TicTacToe = () => {
                 {board.map((cell, index) => (
                     <div
                         key={index}
-                        onClick={() => handleClick(index)}
+                        onClick={() => { handleClick(index); handleInputSound(); }}
                         className={`w-20 h-20 flex justify-center items-center cursor-pointer bg-transparent transition-all duration-200 ${getBorderClasses(index)}`}
                     >
                         {renderCellContent(cell)}
@@ -96,9 +102,10 @@ const TicTacToe = () => {
             <div className="mt-8 text-center">
                 {winner ? (
                     <div className="flex flex-col items-center w-screen h-screen bg-white/10 backdrop-blur-sm fixed top-0 left-0 justify-center">
+                        <audio src={Wins} autoPlay />
                         <div className="flex justify-center items-center bg-[#f6ca40] bg-opacity-90 p-8 rounded-lg shadow-lg shadow-[#f6ca40]/60 border-2 border-white text-center">
                             <h2 className="text-2xl font-semibold text-white drop-shadow-md">
-                                Winner is : <span className='text-red-500'>{winner}</span>
+                                Winner is : {winner === 'X' ? <span className="text-[#fb39d7] text-3xl font-bold">X</span> : <span className="text-[#adee3c] text-3xl font-bold">O</span>}
                             </h2>
                         </div>
                         <button
@@ -115,7 +122,7 @@ const TicTacToe = () => {
                     </div>
                 ) : (
                     <h2 className="text-2xl font-semibold text-white mb-4 drop-shadow-md">
-                        Next Player: {isXNext ? 'X' : 'O'}
+                        Next Player: {isXNext ? <span className="text-[#fb39d7] text-3xl font-bold">X</span> : <span className="text-[#adee3c] text-3xl font-bold">O</span>}
                     </h2>
                 )}
             </div>
