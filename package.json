@@ -1,5 +1,6 @@
 {
   "name": "arcadehub",
+  "homepage": "https://Manoj170505.github.io/ArcadeHub",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,8 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "homepage": "https://Manoj170505.github.io/ArcadeHub"
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",
