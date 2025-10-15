@@ -80,7 +80,14 @@ const TicTacToe = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-teal-900 to-gray-900 flex flex-col items-center justify-center p-8 font-sans">
-            {/* Main title, centered and prominent */}
+            <nav className="w-full bg-transparent p-4 flex justify-start">
+        <button 
+          className="bg-gray-200 text-gray-800 hover:bg-gray-300 py-2 px-4 rounded font-semibold shadow-sm"
+          onClick={() => window.history.back()}
+        >
+          Back
+        </button>
+      </nav>
             <h1 className="text-5xl font-bold text-white mb-8 drop-shadow-lg text-center tracking-wide">
                 Tic Tac Toe
             </h1>

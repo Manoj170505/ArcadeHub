@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "homepage": "https://yourusername.github.io/ArcadeHub"
+    "homepage": "https://Manoj170505.github.io/ArcadeHub"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",
